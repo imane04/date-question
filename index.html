@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Aymano ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#ffeef4;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.container{
+text-align:center;
+padding:30px;
+}
+
+h1{
+font-size:2rem;
+margin-bottom:20px;
+color:#ff4d88;
+}
+
+p{
+font-size:20px;
+margin-bottom:40px;
+color:#444;
+}
+
+.buttons{
+position:relative;
+width:320px;
+height:180px;
+margin:auto;
+}
+
+button{
+padding:15px 35px;
+border:none;
+border-radius:50px;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+position:absolute;
+}
+
+#yes{
+left:40px;
+top:60px;
+background:#ff4d88;
+color:white;
+}
+
+#yes:hover{
+transform:scale(1.08);
+}
+
+#no{
+right:40px;
+top:60px;
+background:white;
+color:#ff4d88;
+border:2px solid #ff4d88;
+}
+
+#message{
+display:none;
+margin-top:40px;
+font-size:28px;
+color:#ff4d88;
+font-weight:bold;
+animation:pop .4s;
+}
+
+@keyframes pop{
+from{
+transform:scale(.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️</h1>
+
+<p>Will you spend tomorrow with me?</p>
+
+<div class="buttons">
+
+<button id="yes">YES 🥹</button>
+
+<button id="no">NO</button>
+
+</div>
+
+<div id="message">
+
+YAYYYYY ❤️<br><br>
+
+See you tomorrow, babe ❤️
+
+</div>
+
+</div>
+
+<script>
+
+const no=document.getElementById("no");
+const yes=document.getElementById("yes");
+const message=document.getElementById("message");
+
+let noClicks=0;
+
+const texts=[
+"No 🥺",
+"Really?",
+"Think again 😭",
+"Pretty please?",
+"Last chance 👀",
+"You sure? 😔",
+"Wrong answer 😤"
+];
+
+function moveButton(){
+
+noClicks++;
+
+if(noClicks<texts.length){
+no.innerHTML=texts[noClicks];
+}
+
+const width=window.innerWidth-140;
+const height=window.innerHeight-120;
+
+const x=Math.random()*width;
+const y=Math.random()*height;
+
+no.style.position="fixed";
+no.style.left=x+"px";
+no.style.top=y+"px";
+
+let scale=1+(noClicks*0.12);
+
+yes.style.transform=`scale(${scale})`;
+
+}
+
+no.addEventListener("click",moveButton);
+
+yes.addEventListener("click",()=>{
+
+document.querySelector(".buttons").style.display="none";
+
+message.style.display="block";
+
+document.body.style.background="#ffd6e7";
+
+});
+
+</script>
+
+</body>
+</html>
